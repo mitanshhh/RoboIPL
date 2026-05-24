@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-dark: #07090e;
+  --bg-card: rgba(13, 19, 33, 0.45);
+  --border-glass: rgba(255, 255, 255, 0.07);
+  --border-glass-glow: rgba(255, 255, 255, 0.15);
+  
+  /* Accent Colors */
+  --mi-blue: #005ea6;
+  --mi-blue-glow: rgba(0, 94, 166, 0.4);
+  --mi-gold: #e2b740;
+  
+  --rr-pink: #d71a60;
+  --rr-pink-glow: rgba(215, 26, 96, 0.4);
+  --rr-blue: #0b2265;
+  
+  --rag-gold: #ffaa00;
+  --rag-gold-glow: rgba(255, 170, 0, 0.3);
+  
+  /* Standard utilities */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --glow-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(0, 94, 166, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(215, 26, 96, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(7, 9, 14, 1) 0%, rgba(4, 5, 8, 1) 100%);
+  background-attachment: fixed;
+}
+
+/* Glassmorphic Container */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--border-glass);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: var(--transition);
+}
+
+.glass-panel:hover {
+  border-color: var(--border-glass-glow);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Grid Layout definitions */
+.app-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+@media (max-width: 1024px) {
+  .app-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animations */
+@keyframes pulse-mi {
+  0% { box-shadow: 0 0 0 0 rgba(0, 94, 166, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(0, 94, 166, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 94, 166, 0); }
+}
+
+@keyframes pulse-rr {
+  0% { box-shadow: 0 0 0 0 rgba(215, 26, 96, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(215, 26, 96, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(215, 26, 96, 0); }
+}
+
+@keyframes border-glow-rag {
+  0% { border-color: var(--border-glass); }
+  50% { border-color: var(--rag-gold); }
+  100% { border-color: var(--border-glass); }
+}
+
+@keyframes boundary-flash {
+  0% { background-color: transparent; }
+  50% { background-color: rgba(226, 183, 64, 0.15); }
+  100% { background-color: transparent; }
+}
+
+@keyframes wicket-flash {
+  0% { background-color: transparent; }
+  50% { background-color: rgba(215, 26, 96, 0.2); }
+  100% { background-color: transparent; }
+}
+
+.flash-boundary {
+  animation: boundary-flash 1.5s ease-in-out;
+}
+
+.flash-wicket {
+  animation: wicket-flash 1.5s ease-in-out;
+}
+
+.pulsing-mi {
+  animation: pulse-mi 2s infinite;
+}
+
+.pulsing-rr {
+  animation: pulse-rr 2s infinite;
+}
+
+/* Typeography Header */
+h1, h2, h3, h4 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-mi {
+  background: rgba(0, 94, 166, 0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(0, 94, 166, 0.3);
+}
+
+.badge-rr {
+  background: rgba(215, 26, 96, 0.15);
+  color: #f472b6;
+  border: 1px solid rgba(215, 26, 96, 0.3);
+}
+
+.badge-rag {
+  background: rgba(255, 170, 0, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(255, 170, 0, 0.3);
+}
