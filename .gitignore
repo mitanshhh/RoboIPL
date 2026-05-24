@@ -1,2 +1,2 @@
 backend/static/audio
-.env
+backend\.env
