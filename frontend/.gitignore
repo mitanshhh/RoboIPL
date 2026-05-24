@@ -23,4 +23,5 @@ dist-ssr
 *.sln
 *.sw?
 
-app/static/audio
+backend/static
+

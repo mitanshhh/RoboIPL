@@ -116,7 +116,7 @@ YOUR ROLE (RAG Expert):
             prompt = self._get_agent_prompt(agent_name, shared_context, current_ball)
             
             # Use gemini-3.5-flash for fast and cost-effective commentary
-            model = genai.GenerativeModel("gemini-3.5-flash")
+            model = genai.GenerativeModel("gemini-3.1-flash-lite")
             
             response = model.generate_content(
                 prompt,
@@ -184,7 +184,7 @@ Return the result strictly as a JSON list of strings.
 Example:
 ["Ashwin's carrom ball is restricting Varma's sweep shot.", "MI batsmen are content with singles to build the partnership."]
 """
-            model = genai.GenerativeModel("gemini-3.5-flash")
+            model = genai.GenerativeModel("gemini-3.1-flash-lite")
             response = model.generate_content(
                 prompt,
                 generation_config=genai.types.GenerationConfig(
